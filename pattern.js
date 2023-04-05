@@ -2,7 +2,6 @@
 // n= Number(n);
 let n =5;
 let pattern = "";
-// Upside pyramid
 for (let i = 1; i <= n; i++) {
 
     for (let j = n; j > i; j--) {
