@@ -1,57 +1,67 @@
-let data=[];
-let currentSize = data.length;
-let maxSize = 5;
-function push(newVal){
-    if(currentSize>=maxSize){
-        console.log("Stack is Full");
-    }
-    data[currentSize]=newVal;
-    currentSize++;
-}
-
-function pop(){
-    if(currentSize>0){
-        currentSize--;
-        data.length=currentSize;
-    }else{
-        console.log("Stack is already Empty");
-    }
-}
-
-function Peek(){
-    if(currentSize>0){
-        console.log(data[currentSize-1]);
-    }else{
-        console.log("Stack is Empty");
+class Stack {
+    constructor(n) {
+        this.items = [];
+        this.currentSize = this.items.length;
+        this.maxSize=n;
     }
 
+    push(element) {
+        if(this.currentSize>=this.maxSize){
+            console.log("Stack is full");
+        }else{
+            this.items.push(element);
+            this.currentSize++;
+        }
+     
+    }
+
+    pop() {
+        if (this.items.length === 0) {
+            return "Underflow";
+        }else{
+            return this.items.pop();
+            this.currentSize--;
+        }
+        
+    }
+
+    peek() {
+        if(this.currentSize>0){
+            return this.items[this.items.length - 1];
+        }
+        else{
+            console.log("Stack is Empty");
+        }
+    }
+
+    size() {
+        if(this.currentSize>0 && this.currentSize<=this.maxSize){
+            return this.items.length;
+        }else{
+            console.log("Stack is Empty");
+        }
+        
+    }
+
+    isEmpty() {
+        if(this.currentSize>0 && this.currentSize<=this.maxSize){
+            return this.items.length === 0;
+        }else if(this.currentSize === 0){
+            console.log("Stack is Empty");
+        }
+       
+    }
+
+    clear() {
+        if(this.currentSize === 0){
+            console.log("Stack is already Empty");
+        }else{
+            this.items = [];
+        }
+       
+    }
 }
 
-function size(){
-    if(currentSize>0 && currentSize<=maxSize){
-        console.log("Size of the Stack is"+ currentSize);
-    }else{
-        console.log("Stack is empty");
-    }
-}
 
-function isEmpty(){     
-    if(currentSize>0 && currentSize<=maxSize){
-        console.log("Stack is not empty");
-    }
-    else if(currentSize === 0){
-        console.log(
-            "Stack is Emplty"
-        );
-    }
-}
+// let stack1= new Stack(maxSize);
 
-function clear(){
-    if (currentSize===0){
-        console.log("Stack is already Cleared");
-    }
-    else{
-        currentSize = 0;
-        console.log("Stack is Cleared");
-    }
-}
