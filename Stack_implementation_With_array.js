@@ -20,7 +20,6 @@ class Stack {
             return "Underflow";
         }else{
             return this.items.pop();
-            this.currentSize--;
         }
         
     }
