@@ -1,29 +1,26 @@
 function Stack(n) {
     this.items = [];
-    this.currentSize=this.items.length;
     this.maxSize=n;
   }
   
   Stack.prototype.push = function(element) {
-    if (this.currentSize >= this.maxSize) {
+    if (this.items.length >= this.maxSize) {
         return "Stack is Full";
       } else {
         this.items.push(element);
-        this.currentSize++;
       }
   };
   
   Stack.prototype.pop = function() {
-    if (this.currentSize === 0) {
+    if (this.items.length === 0) {
         return "Underflow";
       } else {
-        this.currentSize--;
         return this.items.pop();
       }
   };
   
   Stack.prototype.peek = function() {
-    if (this.currentSize > 0) {
+    if (this.items.length > 0) {
         return this.items[this.items.length - 1];
       } else {
         return "Stack is Empty";
@@ -31,15 +28,15 @@ function Stack(n) {
   };
   
   Stack.prototype.isEmpty = function() {
-    return this.currentSize === 0;
+    return this.items.length === 0;
   };
 
   Stack.prototype.size= function(){
-    return this.currentSize;
+    return this.items.length;
   };
 
   Stack.prototype.clear = function(){
-    this.currentSize = 0;
+    this.items = [];
   }
   
 
