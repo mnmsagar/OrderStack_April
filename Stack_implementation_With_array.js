@@ -1,30 +1,27 @@
 class Stack {
     constructor(n) {
       this.items = [];
-      this.currentSize = 0;
       this.maxSize = n;
     }
   
     push(element) {
-      if (this.currentSize >= this.maxSize) {
+      if (this.items.length >= this.maxSize) {
         return "Stack is Full";
       } else {
         this.items.push(element);
-        this.currentSize++;
       }
     }
   
     pop() {
-      if (this.currentSize === 0) {
+      if (this.items.length === 0) {
         return "Underflow";
       } else {
-        this.currentSize--;
         return this.items.pop();
       }
     }
   
     peek() {
-      if (this.currentSize > 0) {
+      if (this.items.length> 0) {
         return this.items[this.items.length - 1];
       } else {
         return "Stack is Empty";
@@ -32,15 +29,15 @@ class Stack {
     }
   
     size() {
-      return this.currentSize;
+      return this.items.length;
     }
   
     isEmpty() {
-      return this.currentSize === 0;
+      return this.items.length === 0;
     }
   
     clear() {
-      this.currentSize = 0;
+      this.item = [] ;
     }
   }
 
